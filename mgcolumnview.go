@@ -121,19 +121,36 @@ type SelectRow struct {
 }
 
 // Selected retorna todas as linhas que estão marcadas (checkbox = true)
-func (cv *ColumnView) ListSelected() []SelectRow {
+func (cv *ColumnView) modelListSelected(firstColumn bool) []SelectRow {
 	var selectedData []SelectRow
 	for _, row := range cv.data {
 		if cv.selected[row.id] {
-			copied := make([]string, len(row.data))
-			copy(copied, row.data)
+			// copied := make([]string, len(row.data))
+			// copy(copied, row.data)
+
+			var sColumn []string
+
+			if firstColumn {
+				if len(row.data) > 0 {
+					sColumn = []string{row.data[0]}
+				}
+			}
+
 			selectedData = append(selectedData, SelectRow{
 				ID:   row.id,
-				Data: copied,
+				Data: sColumn,
 			})
 		}
 	}
 	return selectedData
+}
+
+// func (cv *ColumnView) ListSelected() []SelectRow {
+// 	return cv.modelListSelected(false)
+// }
+
+func (cv *ColumnView) ListSelectedFirstColumn() []SelectRow {
+	return cv.modelListSelected(true)
 }
 
 // Selected retorna todas as linhas que estão marcadas (checkbox = true)
