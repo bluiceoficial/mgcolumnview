@@ -1,5 +1,8 @@
 # MGColumnView
 
+> [!NOTE]
+> This repository has been migrated to Codeberg, please see: https://codeberg.org/bluice/mgcolumnview
+
 **MGColumnView** é um componente customizado para **Fyne (Go)** que implementa uma **visualização tabular baseada em colunas**, com suporte a:
 
 - Cabeçalhos clicáveis (ordenação)
