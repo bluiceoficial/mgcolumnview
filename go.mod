@@ -1,4 +1,4 @@
-module github.com/profmugomes/mgcolumnview
+module github.com/profmugomes/mgcolumnview/v2
 
 go 1.26.5
 
